@@ -9,6 +9,7 @@ import Edit from '../../theme/assets/Edit';
 import Delete from '../../theme/assets/Delete';
 import {bool, string} from 'prop-types';
 
+
 export default class Task extends Component {
     static propTypes = {
         completed: bool.isRequired,
@@ -18,6 +19,13 @@ export default class Task extends Component {
         message: string.isRequired,
         modified: string.isRequired,
     };
+   static defaultProps = {
+        completed: false,
+        created: '',
+        favorite: false,
+        modified: ''
+    };
+
 
     render() {
         return (
