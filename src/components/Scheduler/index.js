@@ -4,7 +4,6 @@ import Styles from './styles.scss';
 import Checkbox from '../../theme/assets/Checkbox';
 import Task from '../Task';
 import { getUniqueID } from '../../helpers';
-import { func } from 'prop-types';
 
 export default class Scheduler extends Component {
     static _keyPress (event) {
@@ -47,9 +46,8 @@ export default class Scheduler extends Component {
         }
     }
     _makeFavorite = () => {
-        const { makeFavorite, id } = this.props;
-
-        makeFavorite(id);
+        // const { tasks } = this.state;
+        // tasks = tasks.map((task) => task.id === id ? )
     };
 
     render () {
