@@ -7,23 +7,30 @@ import CheckBox from '../../theme/assets/Checkbox';
 import Star from '../../theme/assets/Star';
 import Edit from '../../theme/assets/Edit';
 import Delete from '../../theme/assets/Delete';
-import { bool, string } from 'prop-types';
+import { bool, func, string } from 'prop-types';
 
 
 export default class Task extends Component {
     static propTypes = {
-        completed: bool.isRequired,
-        created:   string.isRequired,
-        favorite:  bool.isRequired,
-        id:        string.isRequired,
-        message:   string.isRequired,
-        modified:  string.isRequired,
+        completed:    bool.isRequired,
+        created:      string.isRequired,
+        favorite:     bool.isRequired,
+        id:           string.isRequired,
+        makeFavorite: func.isRequired,
+        message:      string.isRequired,
+        modified:     string.isRequired,
     };
     static defaultProps = {
         completed: false,
         created:   '',
         favorite:  false,
         modified:  '',
+    };
+
+    _makeFavorite = () => {
+        const { id, makeFavorite } = this.props;
+
+        makeFavorite(id);
     };
 
     render () {
@@ -39,7 +46,7 @@ export default class Task extends Component {
                     <input type = 'text' value = { message } />
                 </div>
                 <div>
-                    <Star />
+                    <Star onClick = { this._makeFavorite } />
                     <Edit />
                     <Delete />
                 </div>
