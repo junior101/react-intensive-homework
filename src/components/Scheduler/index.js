@@ -28,11 +28,12 @@ export default class Scheduler extends Component {
         event.preventDefault();
         const { task } = this.state;
 
-        this.setState(({ tasks }) => ({
-            tasks: [{ id: getUniqueID(), message: task }, ...tasks],
-            task:  '',
-        }));
-
+        if (task) {
+            this.setState(({ tasks }) => ({
+                tasks: [{ id: getUniqueID(), message: task }, ...tasks],
+                task:  '',
+            }));
+        }
     }
 
     _handleTaskChange ({ target: { value }}) {
