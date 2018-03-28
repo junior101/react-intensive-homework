@@ -45,9 +45,10 @@ export default class Scheduler extends Component {
             }));
         }
     }
-    _makeFavorite = () => {
-        // const { tasks } = this.state;
-        // tasks = tasks.map((task) => task.id === id ? )
+    _makeFavorite = (id) => {
+        this.setState(({ tasks }) => ({
+            tasks: tasks.map((task) => task.id === id ? task.favorite = true : task),
+        }));
     };
 
     render () {
